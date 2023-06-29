@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.17;
+pragma solidity ^0.8.17;
 
-import {IEIP712} from "./interfaces/IEIP712.sol";
+import {IEIP712} from "https://raw.githubusercontent.com/Uniswap/permit2/main/src/interfaces/IEIP712.sol";
 
 /// @notice EIP712 helpers for permit2
 /// @dev Maintains cross-chain replay protection in the event of a fork

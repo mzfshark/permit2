@@ -1,0 +1,82 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "DOMAIN_SEPARATOR",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Maintains cross-chain replay protection in the event of a forkReference: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/cryptography/EIP712.sol",
+			"kind": "dev",
+			"methods": {
+				"DOMAIN_SEPARATOR()": {
+					"details": "Uses cached version if chainid and address are unchanged from construction."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"DOMAIN_SEPARATOR()": {
+					"notice": "Returns the domain separator for the current chain."
+				}
+			},
+			"notice": "EIP712 helpers for permit2",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/EIP712.sol": "EIP712"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 500
+		},
+		"remappings": []
+	},
+	"sources": {
+		"https://raw.githubusercontent.com/Uniswap/permit2/main/src/interfaces/IEIP712.sol": {
+			"keccak256": "0xea70db68ce450ad38dfbd490058595441144808eb95272ae9b89e3fbe6456954",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e8fad9ff319665acdc2f1295bb82db3e5b4d52babc0b58f147dbdbb9f322c6e5",
+				"dweb:/ipfs/QmTbYJPcux8eJ3qGVYQh6TiwCA2FPu6HXTUg6QFTnX91Ks"
+			]
+		},
+		"src/EIP712.sol": {
+			"keccak256": "0x4ffc3de9f8bd4077b9690360c3f28e34308f516aea1d1091d6a796a14ca0d526",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ddf08f98f344ed27e88a10f8ba07b66e09567094af74a141abc6c8057024fab3",
+				"dweb:/ipfs/QmPvGvdwTGP4YBQrSjWoQegrzPfeLN9KzpQ8GV3zGGJ5Ty"
+			]
+		}
+	},
+	"version": 1
+}

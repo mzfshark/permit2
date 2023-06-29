@@ -1,0 +1,143 @@
+{
+	"id": "9cbf485fa62a58a592b2adc2ab863537",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.18",
+	"solcLongVersion": "0.8.18+commit.87f61d96",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"src/PermitErrors.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.17;\r\n\r\n/// @notice Shared errors between signature based transfers and allowance based transfers.\r\n\r\n/// @notice Thrown when validating an inputted signature that is stale\r\n/// @param signatureDeadline The timestamp at which a signature is no longer valid\r\nerror SignatureExpired(uint256 signatureDeadline);\r\n\r\n/// @notice Thrown when validating that the inputted nonce has not been used\r\nerror InvalidNonce();\r\n"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": true,
+				"runs": 500
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			}
+		}
+	},
+	"output": {
+		"sources": {
+			"src/PermitErrors.sol": {
+				"ast": {
+					"absolutePath": "src/PermitErrors.sol",
+					"exportedSymbols": {
+						"InvalidNonce": [
+							9
+						],
+						"SignatureExpired": [
+							6
+						]
+					},
+					"id": 10,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".17"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:24:0"
+						},
+						{
+							"documentation": {
+								"id": 2,
+								"nodeType": "StructuredDocumentation",
+								"src": "155:156:0",
+								"text": "@notice Thrown when validating an inputted signature that is stale\n @param signatureDeadline The timestamp at which a signature is no longer valid"
+							},
+							"errorSelector": "cd21db4f",
+							"id": 6,
+							"name": "SignatureExpired",
+							"nameLocation": "317:16:0",
+							"nodeType": "ErrorDefinition",
+							"parameters": {
+								"id": 5,
+								"nodeType": "ParameterList",
+								"parameters": [
+									{
+										"constant": false,
+										"id": 4,
+										"mutability": "mutable",
+										"name": "signatureDeadline",
+										"nameLocation": "342:17:0",
+										"nodeType": "VariableDeclaration",
+										"scope": 6,
+										"src": "334:25:0",
+										"stateVariable": false,
+										"storageLocation": "default",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										},
+										"typeName": {
+											"id": 3,
+											"name": "uint256",
+											"nodeType": "ElementaryTypeName",
+											"src": "334:7:0",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											}
+										},
+										"visibility": "internal"
+									}
+								],
+								"src": "333:27:0"
+							},
+							"src": "311:50:0"
+						},
+						{
+							"documentation": {
+								"id": 7,
+								"nodeType": "StructuredDocumentation",
+								"src": "365:78:0",
+								"text": "@notice Thrown when validating that the inputted nonce has not been used"
+							},
+							"errorSelector": "756688fe",
+							"id": 9,
+							"name": "InvalidNonce",
+							"nameLocation": "449:12:0",
+							"nodeType": "ErrorDefinition",
+							"parameters": {
+								"id": 8,
+								"nodeType": "ParameterList",
+								"parameters": [],
+								"src": "461:2:0"
+							},
+							"src": "443:21:0"
+						}
+					],
+					"src": "33:433:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

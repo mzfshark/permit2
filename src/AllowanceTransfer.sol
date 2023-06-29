@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.17;
+pragma solidity ^0.8.6;
 
 import {ERC20} from "solmate/src/tokens/ERC20.sol";
 import {SafeTransferLib} from "solmate/src/utils/SafeTransferLib.sol";
 import {PermitHash} from "./libraries/PermitHash.sol";
 import {SignatureVerification} from "./libraries/SignatureVerification.sol";
 import {EIP712} from "./EIP712.sol";
-import {IAllowanceTransfer} from "../src/interfaces/IAllowanceTransfer.sol";
+import {IAllowanceTransfer} from '../src/interfaces/IAllowanceTransfer.sol';
 import {SignatureExpired, InvalidNonce} from "./PermitErrors.sol";
-import {Allowance} from "./libraries/Allowance.sol";
+import {Allowance} from './libraries/Allowance.sol';
 
 contract AllowanceTransfer is IAllowanceTransfer, EIP712 {
     using SignatureVerification for bytes;

@@ -1,0 +1,828 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					}
+				],
+				"name": "AllowanceExpired",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ExcessiveInvalidation",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "InsufficientAllowance",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidContractSignature",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidNonce",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidSignature",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidSignatureLength",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidSigner",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "signatureDeadline",
+						"type": "uint256"
+					}
+				],
+				"name": "SignatureExpired",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint160",
+						"name": "amount",
+						"type": "uint160"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint48",
+						"name": "expiration",
+						"type": "uint48"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "Lockdown",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint48",
+						"name": "newNonce",
+						"type": "uint48"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint48",
+						"name": "oldNonce",
+						"type": "uint48"
+					}
+				],
+				"name": "NonceInvalidation",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint160",
+						"name": "amount",
+						"type": "uint160"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint48",
+						"name": "expiration",
+						"type": "uint48"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint48",
+						"name": "nonce",
+						"type": "uint48"
+					}
+				],
+				"name": "Permit",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DOMAIN_SEPARATOR",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "allowance",
+				"outputs": [
+					{
+						"internalType": "uint160",
+						"name": "amount",
+						"type": "uint160"
+					},
+					{
+						"internalType": "uint48",
+						"name": "expiration",
+						"type": "uint48"
+					},
+					{
+						"internalType": "uint48",
+						"name": "nonce",
+						"type": "uint48"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint160",
+						"name": "amount",
+						"type": "uint160"
+					},
+					{
+						"internalType": "uint48",
+						"name": "expiration",
+						"type": "uint48"
+					}
+				],
+				"name": "approve",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint48",
+						"name": "newNonce",
+						"type": "uint48"
+					}
+				],
+				"name": "invalidateNonces",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "token",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "spender",
+								"type": "address"
+							}
+						],
+						"internalType": "struct IAllowanceTransfer.TokenSpenderPair[]",
+						"name": "approvals",
+						"type": "tuple[]"
+					}
+				],
+				"name": "lockdown",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "token",
+										"type": "address"
+									},
+									{
+										"internalType": "uint160",
+										"name": "amount",
+										"type": "uint160"
+									},
+									{
+										"internalType": "uint48",
+										"name": "expiration",
+										"type": "uint48"
+									},
+									{
+										"internalType": "uint48",
+										"name": "nonce",
+										"type": "uint48"
+									}
+								],
+								"internalType": "struct IAllowanceTransfer.PermitDetails[]",
+								"name": "details",
+								"type": "tuple[]"
+							},
+							{
+								"internalType": "address",
+								"name": "spender",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "sigDeadline",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IAllowanceTransfer.PermitBatch",
+						"name": "permitBatch",
+						"type": "tuple"
+					},
+					{
+						"internalType": "bytes",
+						"name": "signature",
+						"type": "bytes"
+					}
+				],
+				"name": "permit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "token",
+										"type": "address"
+									},
+									{
+										"internalType": "uint160",
+										"name": "amount",
+										"type": "uint160"
+									},
+									{
+										"internalType": "uint48",
+										"name": "expiration",
+										"type": "uint48"
+									},
+									{
+										"internalType": "uint48",
+										"name": "nonce",
+										"type": "uint48"
+									}
+								],
+								"internalType": "struct IAllowanceTransfer.PermitDetails",
+								"name": "details",
+								"type": "tuple"
+							},
+							{
+								"internalType": "address",
+								"name": "spender",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "sigDeadline",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IAllowanceTransfer.PermitSingle",
+						"name": "permitSingle",
+						"type": "tuple"
+					},
+					{
+						"internalType": "bytes",
+						"name": "signature",
+						"type": "bytes"
+					}
+				],
+				"name": "permit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "from",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint160",
+								"name": "amount",
+								"type": "uint160"
+							},
+							{
+								"internalType": "address",
+								"name": "token",
+								"type": "address"
+							}
+						],
+						"internalType": "struct IAllowanceTransfer.AllowanceTransferDetails[]",
+						"name": "transferDetails",
+						"type": "tuple[]"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint160",
+						"name": "amount",
+						"type": "uint160"
+					},
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"errors": {
+				"AllowanceExpired(uint256)": [
+					{
+						"params": {
+							"deadline": "The timestamp at which the allowed amount is no longer valid"
+						}
+					}
+				],
+				"InsufficientAllowance(uint256)": [
+					{
+						"params": {
+							"amount": "The maximum amount allowed"
+						}
+					}
+				],
+				"SignatureExpired(uint256)": [
+					{
+						"params": {
+							"signatureDeadline": "The timestamp at which a signature is no longer valid"
+						}
+					}
+				]
+			},
+			"kind": "dev",
+			"methods": {
+				"DOMAIN_SEPARATOR()": {
+					"details": "Uses cached version if chainid and address are unchanged from construction."
+				},
+				"approve(address,address,uint160,uint48)": {
+					"details": "The packed allowance also holds a nonce, which will stay unchanged in approveSetting amount to type(uint160).max sets an unlimited approval",
+					"params": {
+						"amount": "The approved amount of the token",
+						"expiration": "The timestamp at which the approval is no longer valid",
+						"spender": "The spender address to approve",
+						"token": "The token to approve"
+					}
+				},
+				"invalidateNonces(address,address,uint48)": {
+					"details": "Can't invalidate more than 2**16 nonces per transaction.",
+					"params": {
+						"newNonce": "The new nonce to set. Invalidates all nonces less than it.",
+						"spender": "The spender to invalidate nonces for",
+						"token": "The token to invalidate nonces for"
+					}
+				},
+				"lockdown((address,address)[])": {
+					"params": {
+						"approvals": "Array of approvals to revoke."
+					}
+				},
+				"permit(address,((address,uint160,uint48,uint48),address,uint256),bytes)": {
+					"details": "May fail if the owner's nonce was invalidated in-flight by invalidateNonce",
+					"params": {
+						"owner": "The owner of the tokens being approved",
+						"permitSingle": "Data signed over by the owner specifying the terms of approval",
+						"signature": "The owner's signature over the permit data"
+					}
+				},
+				"permit(address,((address,uint160,uint48,uint48)[],address,uint256),bytes)": {
+					"details": "May fail if the owner's nonce was invalidated in-flight by invalidateNonce",
+					"params": {
+						"owner": "The owner of the tokens being approved",
+						"permitBatch": "Data signed over by the owner specifying the terms of approval",
+						"signature": "The owner's signature over the permit data"
+					}
+				},
+				"transferFrom((address,address,uint160,address)[])": {
+					"details": "Requires the from addresses to have approved at least the desired amount of tokens to msg.sender.",
+					"params": {
+						"transferDetails": "Array of owners, recipients, amounts, and tokens for the transfers"
+					}
+				},
+				"transferFrom(address,address,uint160,address)": {
+					"details": "Requires the from address to have approved at least the desired amount of tokens to msg.sender.",
+					"params": {
+						"amount": "The amount of the token to transfer",
+						"from": "The address to transfer from",
+						"to": "The address of the recipient",
+						"token": "The token address to transfer"
+					}
+				}
+			},
+			"stateVariables": {
+				"allowance": {
+					"details": "Indexed in the order of token owner address, token address, spender addressThe stored word saves the allowed amount, expiration on the allowance, and nonce"
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"errors": {
+				"AllowanceExpired(uint256)": [
+					{
+						"notice": "Thrown when an allowance on a token has expired."
+					}
+				],
+				"ExcessiveInvalidation()": [
+					{
+						"notice": "Thrown when too many nonces are invalidated."
+					}
+				],
+				"InsufficientAllowance(uint256)": [
+					{
+						"notice": "Thrown when an allowance on a token has been depleted."
+					}
+				],
+				"InvalidContractSignature()": [
+					{
+						"notice": "Thrown when the recovered contract signature is incorrect"
+					}
+				],
+				"InvalidNonce()": [
+					{
+						"notice": "Thrown when validating that the inputted nonce has not been used"
+					}
+				],
+				"InvalidSignature()": [
+					{
+						"notice": "Thrown when the recovered signer is equal to the zero address"
+					}
+				],
+				"InvalidSignatureLength()": [
+					{
+						"notice": "Thrown when the passed in signature is not a valid length"
+					}
+				],
+				"InvalidSigner()": [
+					{
+						"notice": "Thrown when the recovered signer does not equal the claimedSigner"
+					}
+				],
+				"SignatureExpired(uint256)": [
+					{
+						"notice": "Thrown when validating an inputted signature that is stale"
+					}
+				]
+			},
+			"events": {
+				"Approval(address,address,address,uint160,uint48)": {
+					"notice": "Emits an event when the owner successfully sets permissions on a token for the spender."
+				},
+				"Lockdown(address,address,address)": {
+					"notice": "Emits an event when the owner sets the allowance back to 0 with the lockdown function."
+				},
+				"NonceInvalidation(address,address,address,uint48,uint48)": {
+					"notice": "Emits an event when the owner successfully invalidates an ordered nonce."
+				},
+				"Permit(address,address,address,uint160,uint48,uint48)": {
+					"notice": "Emits an event when the owner successfully sets permissions using a permit signature on a token for the spender."
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"DOMAIN_SEPARATOR()": {
+					"notice": "Returns the domain separator for the current chain."
+				},
+				"allowance(address,address,address)": {
+					"notice": "Maps users to tokens to spender addresses and information about the approval on the token"
+				},
+				"approve(address,address,uint160,uint48)": {
+					"notice": "Approves the spender to use up to amount of the specified token up until the expiration"
+				},
+				"invalidateNonces(address,address,uint48)": {
+					"notice": "Invalidate nonces for a given (token, spender) pair"
+				},
+				"lockdown((address,address)[])": {
+					"notice": "Enables performing a \"lockdown\" of the sender's Permit2 identity by batch revoking approvals"
+				},
+				"permit(address,((address,uint160,uint48,uint48),address,uint256),bytes)": {
+					"notice": "Permit a spender to a given amount of the owners token via the owner's EIP-712 signature"
+				},
+				"permit(address,((address,uint160,uint48,uint48)[],address,uint256),bytes)": {
+					"notice": "Permit a spender to the signed amounts of the owners tokens via the owner's EIP-712 signature"
+				},
+				"transferFrom((address,address,uint160,address)[])": {
+					"notice": "Transfer approved tokens in a batch"
+				},
+				"transferFrom(address,address,uint160,address)": {
+					"notice": "Transfer approved tokens from one address to another"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/AllowanceTransfer.sol": "AllowanceTransfer"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 500
+		},
+		"remappings": []
+	},
+	"sources": {
+		"solmate/src/tokens/ERC20.sol": {
+			"keccak256": "0xcdfd8db76b2a3415620e4d18cc5545f3d50de792dbf2c3dd5adb40cbe6f94b10",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://57b3ab70cde374af1cf2c9888636e8de6cf660f087b1c9abd805e9271e19fa35",
+				"dweb:/ipfs/QmNrLDBAHYFjpjSd12jerm1AdBkDqEYUUaXgnT854BUZ97"
+			]
+		},
+		"solmate/src/utils/SafeTransferLib.sol": {
+			"keccak256": "0x6ab948013c2c7ca6351e593600425b0ec6df9035320280c678e735bce16e996b",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://2ab977d0eeb2bf458f9798250215c646d2f3b1f90b5a7e2b506fdf3335c0f060",
+				"dweb:/ipfs/QmYPRoPhNtBAmCSq7imN1scMVpKNQvMTpoqab3tXUx5Tnv"
+			]
+		},
+		"src/AllowanceTransfer.sol": {
+			"keccak256": "0x7a548ce4129f2b8764e1a3e7a6c9a7bf3b86d764f616ffe53598e7384956bb24",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a8b7cc63e2d3e4d68fe4aabadbf9801c16d0c5e92d659ec78e780ab1d6392bfc",
+				"dweb:/ipfs/QmQtQG6yGa8Ps4BxNfLWTaNdA2WXQRPKUtJWCo8ia3aeUN"
+			]
+		},
+		"src/EIP712.sol": {
+			"keccak256": "0xd7e767a8af18ef2b6a81950fd8ec2e3ae850082f8c518bc253e5de41306b05ca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fae78695646ae7f547b893cc073fa1e1bbc5bd7730ab5b3716fa06688fb6909d",
+				"dweb:/ipfs/Qmb1VgJcXk1bnu3UYaMSKaQVZZEVPF4S63JVH5qR1T6xJZ"
+			]
+		},
+		"src/PermitErrors.sol": {
+			"keccak256": "0x7a3024582b1d63865e1e1e4fa351ae537ea86268ef15c3c29af60a6846a3bdf6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ea0dbaa60bede3f5ee23f68970a003cd78c90274a19e9018bac880bedcc6675a",
+				"dweb:/ipfs/QmVoNmZs1RJPSheKi5vNfmiGtuD683VzGciYpyHjKPsUNx"
+			]
+		},
+		"src/interfaces/IAllowanceTransfer.sol": {
+			"keccak256": "0xb0b97d347094dae1c74cc21d029876e98dac797ea8fbe606dab5fe0097d54ed5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dd322ab169a0c88bc30260c92c528526050207675a3ab79d0d865264b2066091",
+				"dweb:/ipfs/Qmc1fyF17wjtS8tdkhqVp7KbgWiC3rYEebAEueyKfi6NFD"
+			]
+		},
+		"src/interfaces/IEIP712.sol": {
+			"keccak256": "0xa866fbb8a3f86678ec4e818710a0df0c088a9a14766ec8597ea8d3cf2a47e33b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://62ca342da356981e6cdeb006df8977fb13141654ba9c697e85614d075236cd8c",
+				"dweb:/ipfs/QmVw5T9ZPisEkznTbe4BfePbTgZsg8NN5gHSTVsC39s1AV"
+			]
+		},
+		"src/interfaces/IERC1271.sol": {
+			"keccak256": "0x68150b1e8868c4dfe88e88bd597c2bbf2643726ebb46684df67903699b10c4d6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0c213a79868705e1ac91322c60d1853897fe94c780ebb137eb25ee972d71be42",
+				"dweb:/ipfs/QmP2wrrG9jMtjEDQ1MP3tmJxGHMWou15S89ZkqzfXMpQqs"
+			]
+		},
+		"src/interfaces/ISignatureTransfer.sol": {
+			"keccak256": "0xb230bdfc970db3c01ab76e29980055fcff9c1974614e47d9cf064f32d9f4f0d9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://39650de7d9d991ad3d1ad444b205b351d8cd0368a3e7492238d1722bc60bf607",
+				"dweb:/ipfs/QmRp5rjYyBXPVfvDbv3tJspiWYrj6JEv61rBCbQxCVWm2m"
+			]
+		},
+		"src/libraries/Allowance.sol": {
+			"keccak256": "0xc3953a12657abf14bd6bfadb2a3e687487f9143b4a3e3971dafd06f68d351f1d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0e34db8804b62bae5535a50a5e26b9b177dbba5ad02160b091ace2c1b9ae90d4",
+				"dweb:/ipfs/QmVqzHvLXRWJpjFWDau1JBpHruq2zaKxpSHsfxcGBkcgfM"
+			]
+		},
+		"src/libraries/PermitHash.sol": {
+			"keccak256": "0xd674a1240967f48715748689ac9b2f56dc29b76242e3c440c646758ff057b14b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7a6b79e1cdde0fde5c3c60d201784b42d9be70e14af4879735427f758a60e89b",
+				"dweb:/ipfs/QmUjtpfTXj28QwPWM3ruiEssgjBHkP2QaUwM3XNyZW3cKK"
+			]
+		},
+		"src/libraries/SignatureVerification.sol": {
+			"keccak256": "0x319af0705f681cc8755975f7c81a83b02c4c46d531481b738688deb5286f4a72",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://58a9c77136d4aed8182d2467715fd955fef91fce70e764dc85d24b271d2aa263",
+				"dweb:/ipfs/QmcciGn2ucfjN9XPMWFk3bNqKykiL8okxQXeCnXiAdcTt7"
+			]
+		}
+	},
+	"version": 1
+}
